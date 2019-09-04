@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d58238283a4848eaf99295cfbc596ef",
+    "content-hash": "ee00ece0e12099e3b4ca07728e741c0b",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -471,13 +471,19 @@
         {
             "name": "lab36/excel-report",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lab36/excel-report.git",
+                "reference": "74cfa7acb58b18ab5c0d3cae28aadc0f7c99599b"
+            },
             "dist": {
-                "type": "path",
-                "url": "../excel-report",
-                "reference": "ef7e832f8fc08913e61eec2ca7bf8280dc4eee78",
-                "shasum": null
+                "type": "zip",
+                "url": "https://api.github.com/repos/lab36/excel-report/zipball/74cfa7acb58b18ab5c0d3cae28aadc0f7c99599b",
+                "reference": "74cfa7acb58b18ab5c0d3cae28aadc0f7c99599b",
+                "shasum": ""
             },
             "require": {
+                "illuminate/support": "^5.8|^6.0",
                 "php": "^7.2",
                 "phpoffice/phpspreadsheet": "^1.5"
             },
@@ -501,19 +507,7 @@
                     "Lab36\\ExcelReport\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Lab36\\ExcelReport\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -524,13 +518,15 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Personalizable Excel reports in Laravel",
+            "description": "Customizable Excel reports in Laravel",
             "keywords": [
                 "excel",
                 "excel-report",
                 "export",
-                "laravel"
-            ]
+                "laravel",
+                "themes"
+            ],
+            "time": "2019-09-04T13:48:40+00:00"
         },
         {
             "name": "laravel/framework",
