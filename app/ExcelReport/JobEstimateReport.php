@@ -30,7 +30,7 @@ class JobEstimateReport extends ExcelReport
     }
 
 
-    public function overrideCell(Worksheet $active_sheet, int $current_row_no, int $column_no, string $value, array $row_data, string $column_name)
+    public function overrideCell(Worksheet $active_sheet, int $current_row_no, int $column_no, $value, array $row_data, string $column_name)
     {
         if ($row_data['name'] == 'Total') {
             $active_sheet->getStyle(Coordinate::stringFromColumnIndex($column_no).$current_row_no)

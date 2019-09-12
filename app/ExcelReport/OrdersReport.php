@@ -43,7 +43,7 @@ class OrdersReport extends ExcelReport
     }
 
 
-    public function overrideCell(Worksheet $active_sheet, int $current_row_no, int $column_no, string $value, array $row_data, string $column_name)
+    public function overrideCell(Worksheet $active_sheet, int $current_row_no, int $column_no, $value, array $row_data, string $column_name)
     {
         if ($column_name == 'order_type' && is_numeric($value)) {
             $active_sheet->setCellValue(Coordinate::stringFromColumnIndex($column_no).$current_row_no, config('enums.order_type')[$value]);

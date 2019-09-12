@@ -14,4 +14,6 @@ php artisan serve
 
 [Example 4](https://github.com/lab36/excel-report-examples/tree/master/app/ExcelReport/SalesReport.php)
 
+[Example 5](https://github.com/lab36/excel-report-examples/tree/master/app/ExcelReport/MonthlySalesReport.php) - with variable columns
+
 To view in your browser http://localhost:8000

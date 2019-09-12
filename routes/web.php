@@ -19,3 +19,4 @@ Route::get('/daily-construction','Controller@exportDailyConstruction')->name('da
 Route::get('/job-estimate','Controller@exportJobEstimate')->name('job-estimate.export');
 Route::get('/sales','Controller@exportSales')->name('sales.export');
 Route::get('/orders','Controller@exportOrders')->name('orders.export');
+Route::get('/monthly-sales.export','Controller@exportMonthlySales')->name('monthly-sales.export');

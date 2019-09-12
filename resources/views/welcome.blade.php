@@ -75,6 +75,7 @@
             <a href="{{route('job-estimate.export')}}">Job Estimate Report</a>
             <a href="{{route('sales.export')}}">Sales Report</a>
             <a href="{{route('orders.export')}}">Orders Report</a>
+            <a href="{{route('monthly-sales.export')}}">Monthly Sales Report</a>
             <a href="https://github.com/lab36/excel-report.git">GitHub</a>
         </div>
     </div>

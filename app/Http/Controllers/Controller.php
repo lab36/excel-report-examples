@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ExcelReport\DailyConstructionReport;
 use App\ExcelReport\JobEstimateReport;
+use App\ExcelReport\MonthlySalesReport;
 use App\ExcelReport\OrdersReport;
 use App\ExcelReport\SalesReport;
 use Carbon\Carbon;
@@ -118,5 +119,39 @@ class Controller
                            ->setFilters($filters)
                            ->setTheme(new ExcelReportLightSalmonTheme())
                            ->download('Orders '.Carbon::now()->toDateString());
+    }
+
+
+    public function exportMonthlySales()
+    {
+        $faker = Factory::create();
+        $no_of_months = rand(3, 10);
+        $filters['from_month'] = Carbon::createFromFormat('Y-m', date('Y').'-01')->format('Y-m');
+        $filters['to_month'] = Carbon::createFromFormat('Y-m', date('Y').'-'.$no_of_months)->format('Y-m');
+
+        $columns['service'] = 'Service';
+        for ($i = 1; $i <= $no_of_months; $i++) {
+            $columns[$i] = Carbon::createFromFormat('Y-m', date('Y').'-'.$i)->format('Y-m');
+        }
+
+        for ($i = 0; $i < 30; $i++) {
+            foreach ($columns as $index => $column) {
+                $report_line[$index] = $faker->numberBetween(1000, 20000);
+
+                if ($index === 'service') {
+                    $report_line[$index] = $faker->jobTitle;
+                }
+            }
+
+            $data[] = $report_line;
+        }
+
+        return MonthlySalesReport::fromOtherArray(
+            'Orders report',
+            $data,
+            $columns)
+                                 ->setFilters($filters)
+                                 ->setTheme(new ExcelReportLightSalmonTheme())
+                                 ->download('Monthly sales '.$filters['from_month'].'/'.$filters['to_month']);
     }
 }
