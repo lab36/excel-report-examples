@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ExcelReport\DailyConstructionReport;
+use App\ExcelReport\InvoicesReport;
 use App\ExcelReport\JobEstimateReport;
 use App\ExcelReport\MonthlySalesReport;
 use App\ExcelReport\OrdersReport;
@@ -153,5 +154,29 @@ class Controller
                                  ->setFilters($filters)
                                  ->setTheme(new ExcelReportLightSalmonTheme())
                                  ->download('Monthly sales '.$filters['from_month'].'/'.$filters['to_month']);
+    }
+
+
+    public function exportInvoices()
+    {
+        $faker = Factory::create();
+
+        for ($i = 0; $i < 100; $i++) {
+            $report_line['client_name'] = $faker->name;
+            $report_line['invoice_serial'] = 'INV';
+            $report_line['invoice_number'] = '231'.$i;
+            $report_line['invoice_date'] = Carbon::today()->format('Y-m-d');
+            $report_line['services'] = [
+                'id' => $i,
+                'name' => $faker->jobTitle,
+                'cod' => $i.'252',
+            ];
+            $report_line['amount'] = $faker->numberBetween(30, 150);
+
+            $data[] = $report_line;
+        }
+
+        return InvoicesReport::fromArray('Invoices report', $data)
+                             ->download();
     }
 }

@@ -20,3 +20,4 @@ Route::get('/job-estimate','Controller@exportJobEstimate')->name('job-estimate.e
 Route::get('/sales','Controller@exportSales')->name('sales.export');
 Route::get('/orders','Controller@exportOrders')->name('orders.export');
 Route::get('/monthly-sales.export','Controller@exportMonthlySales')->name('monthly-sales.export');
+Route::get('/invoices.export','Controller@exportInvoices')->name('invoices.export');
